@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0b1942">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>ESCN CARDS • Album 222 Cartes</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts : Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            escnBlue: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              800: '#1e3a8a',
+              900: '#172554',
+              950: '#0b1942',
+            },
+            escnYellow: {
+              50: '#fefce8',
+              100: '#fef9c3',
+              200: '#fef08a',
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      -webkit-tap-highlight-color: transparent;
+      background-color: #eef2f9;
+      overscroll-behavior-y: contain;
+    }
+
+    /* Masquer les barres de défilement horizontales tout en gardant le défilement tactile */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Carte grand format / photo groupe obtenue aux couleurs jaune/or ESCN */
+    .grand-owned {
+      background: linear-gradient(135deg, #fefce8 0%, #fef08a 58%, #fde047 100%);
+      border-color: #eab308 !important;
+    }
+
+    /* Animation d'apparition des notifications toast */
+    @keyframes slideUpToast {
+      from { transform: translate(-50%, 120%); opacity: 0; }
+      to { transform: translate(-50%, 0); opacity: 1; }
+    }
+    .toast-anim {
+      animation: slideUpToast 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="text-slate-800 pb-24 select-none">
+
+  <!-- ==================== EN-TÊTE STICKY BLEU & JAUNE ESCN ==================== -->
+  <header class="bg-gradient-to-r from-escnBlue-950 via-escnBlue-900 to-escnBlue-800 text-white shadow-lg sticky top-0 z-30 border-b-2 border-escnYellow-400">
+    <div class="max-w-5xl mx-auto px-3 sm:px-4 pt-2.5 pb-3">
+      <!-- Ligne 1 : Écusson ESCN + Titre ESCN CARDS + Bouton Paquet + Compteur Doubles -->
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <!-- Écusson officiel ESCN Courcelles sur Nied 1946 (Jaune & Bleu avec ballon) -->
+          <div class="w-10 h-11 shrink-0 flex items-center justify-center drop-shadow-md" aria-label="Logo ESCN Courcelles sur Nied 1946">
+            <svg viewBox="0 0 120 140" class="w-full h-full" role="img" aria-label="Écusson ESCN Courcelles sur Nied 1946">
+              <defs>
+                <clipPath id="escnShieldClip">
+                  <path d="M12 10 Q60 2 108 10 Q106 86 60 132 Q14 86 12 10 Z" />
+                </clipPath>
+                <linearGradient id="yellowHalfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fef08a" />
+                  <stop offset="55%" stop-color="#facc15" />
+                  <stop offset="100%" stop-color="#eab308" />
+                </linearGradient>
+                <linearGradient id="blueHalfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#1d4ed8" />
+                  <stop offset="60%" stop-color="#1e3a8a" />
+                  <stop offset="100%" stop-color="#0f2461" />
+                </linearGradient>
+              </defs>
+
+              <!-- Fond complet de l'écusson -->
+              <g clip-path="url(#escnShieldClip)">
+                <!-- Bande supérieure blanche pour "Courcelles sur Nied" -->
+                <rect x="0" y="0" width="120" height="36" fill="#ffffff" />
+                <!-- Moitié gauche jaune -->
+                <rect x="0" y="36" width="60" height="104" fill="url(#yellowHalfGrad)" />
+                <!-- Moitié droite bleue -->
+                <rect x="60" y="36" width="60" height="104" fill="url(#blueHalfGrad)" />
+                <!-- Ligne centrale de séparation -->
+                <line x1="60" y1="36" x2="60" y2="134" stroke="#0f172a" stroke-width="2.2" />
+                <!-- Ligne sous le bandeau supérieur -->
+                <line x1="8" y1="36" x2="112" y2="36" stroke="#1e3a8a" stroke-width="2" />
+
+                <!-- Texte Courcelles sur Nied -->
+                <text x="60" y="25" text-anchor="middle" fill="#1e3a8a" font-family="Outfit, Inter, sans-serif" font-style="italic" font-weight="800" font-size="11.2" letter-spacing="-0.2">
+                  Courcelles sur Nied
+                </text>
+
+                <!-- Lettres E S C N -->
+                <text x="23" y="75" font-family="Outfit, Inter, sans-serif" font-style="italic" font-weight="900" font-size="25" fill="#1d4ed8" stroke="#0f172a" stroke-width="0.9">E</text>
+                <text x="41" y="75" font-family="Outfit, Inter, sans-serif" font-style="italic" font-weight="900" font-size="25" fill="#1d4ed8" stroke="#0f172a" stroke-width="0.9">S</text>
+                <text x="65" y="75" font-family="Outfit, Inter, sans-serif" font-style="italic" font-weight="900" font-size="25" fill="#facc15" stroke="#0f172a" stroke-width="0.9">C</text>
+                <text x="86" y="75" font-family="Outfit, Inter, sans-serif" font-style="italic" font-weight="900" font-size="25" fill="#facc15" stroke="#0f172a" stroke-width="0.9">N</text>
+
+                <!-- Année 1946 -->
+                <text x="83" y="91" text-anchor="middle" font-family="Outfit, Inter, sans-serif" font-style="italic" font-weight="800" font-size="10.5" fill="#facc15" stroke="#0f172a" stroke-width="0.6">1946</text>
+
+                <!-- Ballon de football en bas -->
+                <g transform="translate(60, 102)">
+                  <circle cx="0" cy="0" r="14.5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+                  <polygon points="0,-5.5 5.2,-1.7 3.2,4.5 -3.2,4.5 -5.2,-1.7" fill="#1e293b" />
+                  <line x1="0" y1="-5.5" x2="0" y2="-14.2" stroke="#0f172a" stroke-width="1.5" />
+                  <line x1="5.2" y1="-1.7" x2="13.5" y2="-4.4" stroke="#0f172a" stroke-width="1.5" />
+                  <line x1="3.2" y1="4.5" x2="8.4" y2="11.6" stroke="#0f172a" stroke-width="1.5" />
+                  <line x1="-3.2" y1="4.5" x2="-8.4" y2="11.6" stroke="#0f172a" stroke-width="1.5" />
+                  <line x1="-5.2" y1="-1.7" x2="-13.5" y2="-4.4" stroke="#0f172a" stroke-width="1.5" />
+                </g>
+              </g>
+
+              <!-- Contour extérieur de l'écusson -->
+              <path d="M12 10 Q60 2 108 10 Q106 86 60 132 Q14 86 12 10 Z" fill="none" stroke="#facc15" stroke-width="4.5" />
+              <path d="M12 10 Q60 2 108 10 Q106 86 60 132 Q14 86 12 10 Z" fill="none" stroke="#0f172a" stroke-width="2.2" />
+            </svg>
+          </div>
+
+          <div class="min-w-0">
+            <h1 id="header-title" class="font-display font-black text-base sm:text-lg tracking-wide leading-tight truncate text-white">
+              ESCN CARDS
+            </h1>
+            <div class="flex items-center gap-1.5 sm:gap-2 text-[11px] text-escnBlue-100/90">
+              <span id="header-owned-text" class="text-escnYellow-300 font-bold">0 / 222</span>
+              <span>•</span>
+              <span id="header-missing-text">222 manquantes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bouton Ouverture Paquet + Badge Doubles -->
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button id="btn-open-pack-modal" type="button" class="h-10 px-3 rounded-xl bg-escnYellow-400 hover:bg-escnYellow-300 active:scale-95 text-escnBlue-950 font-display font-extrabold text-xs flex items-center gap-1.5 shadow-md transition">
+            <svg class="w-4 h-4 stroke-[2.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+            </svg>
+            <span>Paquet</span>
+          </button>
+
+          <button id="btn-quick-doubles" type="button" title="Filtrer mes doubles" class="h-10 px-2.5 rounded-xl bg-escnBlue-950/80 border border-escnYellow-400/50 flex flex-col items-center justify-center active:scale-95 transition">
+            <span id="header-doubles-count" class="font-display font-extrabold text-xs sm:text-sm text-escnYellow-300 leading-none">0</span>
+            <span class="text-[9px] uppercase tracking-wider text-escnBlue-100 font-semibold mt-0.5">Doubles</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Ligne 2 : Barre de progression globale -->
+      <div class="flex items-center gap-2.5">
+        <div class="flex-1 h-2 bg-escnBlue-950/90 rounded-full overflow-hidden border border-escnBlue-700">
+          <div id="header-progress-bar" class="h-full bg-gradient-to-r from-escnYellow-400 via-escnYellow-300 to-white rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+        <span id="header-percent" class="font-display font-extrabold text-xs text-escnYellow-300 w-10 text-right">0%</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== CONTENEUR PRINCIPAL ==================== -->
+  <main class="max-w-5xl mx-auto px-3 sm:px-4 pt-3">
+
+    <!-- ============================================================ -->
+    <!-- VUE 1 : ALBUM (12 CATÉGORIES DANS L'ORDRE EXACT)             -->
+    <!-- ============================================================ -->
+    <section id="view-album" class="space-y-3">
+
+      <!-- Barre de recherche & Filtres -->
+      <div class="bg-white rounded-2xl p-3 shadow-xs border border-slate-200/90 space-y-2.5">
+        <div class="relative">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Chercher un code (A1, A5, E1, 53...), rubrique ou nom..."
+            class="w-full h-11 pl-10 pr-10 bg-slate-100 border border-transparent focus:border-escnBlue-600 focus:bg-white rounded-xl text-sm outline-none transition"
+          >
+          <button id="clear-search-btn" type="button" class="hidden absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-slate-400 hover:text-slate-700 rounded-lg">
+            ✕
+          </button>
+        </div>
+
+        <!-- Pilules de filtres d'état -->
+        <div class="flex gap-1.5 overflow-x-auto no-scrollbar pb-0.5" id="status-filter-bar">
+          <button data-filter="all" type="button" class="filter-pill active h-9 px-3 rounded-xl text-xs font-bold whitespace-nowrap bg-escnBlue-900 text-white shadow-xs transition">
+            Toutes (<span id="pill-count-all">222</span>)
+          </button>
+          <button data-filter="missing" type="button" class="filter-pill h-9 px-3 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+            Manquantes (<span id="pill-count-missing">222</span>)
+          </button>
+          <button data-filter="owned" type="button" class="filter-pill h-9 px-3 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+            Possédées (<span id="pill-count-owned">0</span>)
+          </button>
+          <button data-filter="duplicates" type="button" class="filter-pill h-9 px-3 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+            Doubles (<span id="pill-count-duplicates">0</span>)
+          </button>
+          <button data-filter="group_photos" type="button" class="filter-pill h-9 px-3 rounded-xl text-xs font-semibold whitespace-nowrap bg-escnYellow-50 text-escnBlue-950 border border-escnYellow-300 hover:bg-escnYellow-100 transition">
+            🧩 Photos équipe / Grand (<span id="pill-count-group">0/38</span>)
+          </button>
+        </div>
+
+        <!-- Barre horizontale scrollable des 12 catégories dans l'ordre exact -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1 border-t border-slate-100" id="category-pills-bar"></div>
+      </div>
+
+      <!-- Légende rapide -->
+      <div class="flex flex-wrap items-center justify-between gap-2 px-1 text-[11px] text-slate-500">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="inline-flex items-center gap-1">
+            <span class="w-2.5 h-2.5 rounded-xs bg-escnYellow-400 border border-escnYellow-600 inline-block"></span>
+            Puzzle / Photo groupe (38)
+          </span>
+          <span class="inline-flex items-center gap-1">
+            <span class="w-2.5 h-2.5 rounded-xs bg-escnBlue-700 inline-block"></span>
+            Image individuelle (184)
+          </span>
+        </div>
+        <span>Touchez une carte pour cocher</span>
+      </div>
+
+      <!-- Sections par catégorie (ordre strict 1 à 12) -->
+      <div id="categories-sections-container" class="space-y-4"></div>
+
+      <!-- État vide -->
+      <div id="album-empty-state" class="hidden bg-white rounded-2xl p-8 text-center border border-slate-200 shadow-xs">
+        <div class="text-3xl mb-2">⚽</div>
+        <h3 class="font-display font-bold text-slate-800 text-base">Aucune vignette correspondante</h3>
+        <p class="text-xs text-slate-500 mt-1">Modifie ta recherche ou réinitialise les filtres actifs.</p>
+        <button id="btn-reset-album-filters" type="button" class="mt-4 h-11 px-5 bg-escnBlue-800 hover:bg-escnBlue-900 text-white text-xs font-bold rounded-xl shadow-xs transition">
+          Afficher les 222 cartes
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- VUE 2 : STATISTIQUES DÉTAILLÉES PAR RUBRIQUE                 -->
+    <!-- ============================================================ -->
+    <section id="view-stats" class="hidden space-y-4">
+      <div class="bg-white rounded-2xl p-4 shadow-xs border border-slate-200">
+        <h2 class="font-display font-extrabold text-base text-escnBlue-950 mb-3">📊 Avancement Général ESCN CARDS</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <div class="bg-escnBlue-50 border border-escnBlue-200 rounded-xl p-3 text-center">
+            <div id="stat-box-owned" class="font-display font-black text-xl text-escnBlue-900">0 / 222</div>
+            <div class="text-[11px] font-semibold text-escnBlue-800">Cartes possédées</div>
+          </div>
+          <div class="bg-slate-100 border border-slate-200 rounded-xl p-3 text-center">
+            <div id="stat-box-missing" class="font-display font-black text-xl text-slate-700">222</div>
+            <div class="text-[11px] font-semibold text-slate-600">Manquantes</div>
+          </div>
+          <div class="bg-escnYellow-50 border border-escnYellow-300 rounded-xl p-3 text-center">
+            <div id="stat-box-group" class="font-display font-black text-xl text-escnBlue-950">0 / 38</div>
+            <div class="text-[11px] font-semibold text-slate-700">Photos groupe / Grand</div>
+          </div>
+          <div class="bg-escnBlue-50 border border-escnBlue-200 rounded-xl p-3 text-center">
+            <div id="stat-box-duplicates" class="font-display font-black text-xl text-escnBlue-700">0</div>
+            <div class="text-[11px] font-semibold text-escnBlue-800">Doubles en stock</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow-xs border border-slate-200 space-y-3">
+        <div class="flex items-center justify-between">
+          <h2 class="font-display font-extrabold text-base text-escnBlue-950">📋 Détail des 12 rubriques</h2>
+          <span class="text-[11px] font-semibold text-slate-400">Ordre officiel</span>
+        </div>
+        <div id="stats-categories-list" class="space-y-2.5"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- VUE 3 : ÉCHANGES (CODE COMPACT ALB222 & WHATSAPP)            -->
+    <!-- ============================================================ -->
+    <section id="view-trades" class="hidden space-y-4">
+      <div class="bg-white rounded-2xl p-4 shadow-xs border border-slate-200 space-y-3">
+        <div>
+          <h2 class="font-display font-extrabold text-base text-escnBlue-950 flex items-center gap-2">
+            <span>📤</span> Partager ma liste d'échange
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Partage ta liste sur le groupe WhatsApp des parents ou envoie ton code <code class="bg-slate-100 px-1 rounded font-mono text-slate-700">ALB222:...</code> pour croiser les collections.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <button id="btn-copy-whatsapp" type="button" class="h-12 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] active:scale-[0.99] text-white font-bold text-xs sm:text-sm px-4 rounded-xl shadow-xs transition">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+            <span>Copier message WhatsApp</span>
+          </button>
+
+          <button id="btn-copy-code" type="button" class="h-12 flex items-center justify-center gap-2 bg-escnBlue-900 hover:bg-escnBlue-950 active:scale-[0.99] text-white font-bold text-xs sm:text-sm px-4 rounded-xl shadow-xs transition">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <span>Copier Code ALB222</span>
+          </button>
+        </div>
+
+        <div class="bg-slate-50 rounded-xl p-3 border border-slate-200 space-y-1.5">
+          <div class="flex justify-between items-center text-[11px]">
+            <span class="font-bold uppercase tracking-wider text-slate-400">Mon Code Compact (222 cartes)</span>
+            <span id="trade-my-summary" class="font-bold text-escnBlue-800">0 manquantes • 0 doubles</span>
+          </div>
+          <input type="text" id="my-trade-code-display" readonly class="w-full bg-white text-xs font-mono text-slate-700 p-2.5 rounded-lg border border-slate-200 outline-none select-all">
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow-xs border border-slate-200 space-y-3">
+        <div>
+          <h2 class="font-display font-extrabold text-base text-escnBlue-950 flex items-center gap-2">
+            <span>🤝</span> Comparer avec un collectionneur
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Colle le message WhatsApp ou le code <code class="bg-slate-100 px-1 rounded font-mono text-slate-700">ALB222:...</code> d'un autre joueur ou parent pour voir les échanges possibles.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-2">
+          <input
+            type="text"
+            id="partner-code-input"
+            placeholder="Colle ici le code ALB222:... reçu"
+            class="flex-1 h-12 bg-slate-100 border border-slate-200 focus:border-escnBlue-600 focus:bg-white rounded-xl px-3.5 text-xs font-mono outline-none transition"
+          >
+          <button id="btn-compare-trade" type="button" class="h-12 px-5 bg-escnYellow-400 hover:bg-escnYellow-300 active:scale-[0.99] text-escnBlue-950 font-display font-extrabold text-xs sm:text-sm rounded-xl shadow-xs transition shrink-0">
+            Comparer les listes
+          </button>
+        </div>
+
+        <div id="trade-comparison-result" class="hidden space-y-3 pt-3 border-t border-slate-100">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="bg-escnBlue-50/80 border border-escnBlue-200 rounded-xl p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xs font-extrabold text-escnBlue-950">📥 Il/Elle a pour moi</h3>
+                <span id="trade-receive-badge" class="bg-escnBlue-800 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">0 cartes</span>
+              </div>
+              <div id="trade-receive-list" class="space-y-1.5 max-h-56 overflow-y-auto pr-1 text-xs"></div>
+            </div>
+
+            <div class="bg-escnYellow-50/80 border border-escnYellow-300 rounded-xl p-3">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xs font-extrabold text-escnBlue-950">📤 J'ai pour lui/elle</h3>
+                <span id="trade-give-badge" class="bg-escnYellow-400 text-escnBlue-950 text-xs font-bold px-2.5 py-0.5 rounded-full">0 cartes</span>
+              </div>
+              <div id="trade-give-list" class="space-y-1.5 max-h-56 overflow-y-auto pr-1 text-xs"></div>
+            </div>
+          </div>
+
+          <div id="trade-validate-banner" class="bg-escnBlue-950 text-white rounded-xl p-3.5 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p class="text-xs text-escnBlue-100 text-center sm:text-left">
+              Échange effectué ? Ajoute les cartes reçues et décrémente tes doubles en un clic :
+            </p>
+            <button id="btn-validate-trade" type="button" class="w-full sm:w-auto h-11 px-4 bg-escnYellow-400 hover:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs rounded-xl transition shrink-0">
+              ✅ Valider l'échange
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- VUE 4 : CONFIG / NOMS & SAUVEGARDE                           -->
+    <!-- ============================================================ -->
+    <section id="view-config" class="hidden space-y-4">
+      <div class="bg-white rounded-2xl p-4 shadow-xs border border-slate-200 space-y-3">
+        <h2 class="font-display font-extrabold text-base text-escnBlue-950">⚙️ Titre de l'Album</h2>
+        <div class="flex gap-2">
+          <input type="text" id="config-club-name" class="flex-1 h-11 bg-slate-100 border border-slate-200 focus:border-escnBlue-600 focus:bg-white rounded-xl px-3.5 text-sm font-semibold outline-none">
+          <button id="btn-save-club-name" type="button" class="h-11 px-4 bg-escnBlue-900 hover:bg-escnBlue-950 text-white font-bold text-xs rounded-xl transition">
+            Enregistrer
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow-xs border border-slate-200 space-y-3">
+        <div>
+          <h2 class="font-display font-extrabold text-base text-escnBlue-950">🏷️ Associer les noms des joueurs / lieux / staff</h2>
+          <p class="text-xs text-slate-500 mt-1">
+            Colle une liste au format <code class="bg-slate-100 px-1.5 py-0.5 rounded font-mono text-slate-800">Code: Nom</code> ou <code class="bg-slate-100 px-1.5 py-0.5 rounded font-mono text-slate-800">Code;Nom</code> (ex: <code class="bg-slate-100 px-1 rounded font-mono">A5: Terrain honneur</code> ou <code class="bg-slate-100 px-1 rounded font-mono">53: Léo</code>) :
+          </p>
+        </div>
+
+        <textarea
+          id="bulk-names-textarea"
+          rows="5"
+          placeholder="A1: Écusson ESCN (1/4)&#10;A5: Terrain principal&#10;A6: Vestiaires&#10;E1: Équipe U8-U9 (1/4)&#10;53: Léo&#10;54: Noé"
+          class="w-full bg-slate-50 border border-slate-200 focus:border-escnBlue-600 focus:bg-white rounded-xl p-3 text-xs font-mono outline-none"
+        ></textarea>
+
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <button id="btn-fill-current-names" type="button" class="text-xs font-semibold text-escnBlue-800 hover:underline">
+            Charger les noms déjà enregistrés
+          </button>
+          <button id="btn-apply-bulk-names" type="button" class="h-11 px-4 bg-escnBlue-800 hover:bg-escnBlue-900 text-white font-bold text-xs rounded-xl shadow-xs transition">
+            Appliquer les noms
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow-xs border border-slate-200 space-y-3">
+        <h2 class="font-display font-extrabold text-base text-escnBlue-950">💾 Sauvegarde & Réinitialisation</h2>
+        <p class="text-xs text-slate-500">
+          Ta collection est sauvegardée automatiquement dans ton navigateur. Tu peux exporter un fichier .json ou remettre à zéro.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <button id="btn-export-backup" type="button" class="h-11 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs px-4 rounded-xl border border-slate-200 transition">
+            ⬇️ Exporter sauvegarde (.json)
+          </button>
+          <label class="h-11 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs px-4 rounded-xl border border-slate-200 transition flex items-center justify-center cursor-pointer">
+            ⬆️ Restaurer sauvegarde (.json)
+            <input type="file" id="input-restore-backup" accept=".json" class="hidden">
+          </label>
+        </div>
+
+        <div class="pt-2 border-t border-slate-100">
+          <button id="btn-reset-collection" type="button" class="w-full h-11 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 font-bold text-xs px-4 rounded-xl transition">
+            🗑️ Remettre les 222 cartes à zéro
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODALE : OUVERTURE PAQUET ==================== -->
+  <div id="pack-modal" class="hidden fixed inset-0 bg-escnBlue-950/75 backdrop-blur-xs z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+      <div class="bg-escnBlue-950 text-white px-4 py-3.5 flex items-center justify-between border-b border-escnYellow-400/50">
+        <div>
+          <h2 class="font-display font-extrabold text-base flex items-center gap-2">
+            <span>🎁</span> Ouverture de Paquet
+          </h2>
+          <p class="text-[11px] text-escnBlue-200">Tape ou compose les codes (ex: A1, A5, E1, 53, 128...)</p>
+        </div>
+        <button id="btn-close-pack-modal" type="button" class="w-10 h-10 rounded-xl bg-escnBlue-900 hover:bg-escnBlue-800 flex items-center justify-center text-slate-200 font-bold">
+          ✕
+        </button>
+      </div>
+
+      <div class="p-4 overflow-y-auto space-y-3">
+        <div class="space-y-1.5">
+          <div class="flex gap-2">
+            <input
+              type="text"
+              id="pack-input"
+              placeholder="Ex: A1 A5 E1 53 128..."
+              autocomplete="off"
+              autocapitalize="characters"
+              class="flex-1 h-12 bg-slate-100 border-2 border-slate-200 focus:border-escnBlue-600 focus:bg-white rounded-xl px-3.5 font-display font-extrabold text-base uppercase tracking-wide outline-none"
+            >
+            <button id="btn-pack-add-current" type="button" class="h-12 px-4 bg-escnBlue-800 hover:bg-escnBlue-900 active:scale-95 text-white font-display font-extrabold text-xs rounded-xl shadow-xs transition shrink-0">
+              + Ajouter
+            </button>
+          </div>
+
+          <div id="pack-live-preview" class="min-h-[42px] rounded-xl px-3 py-2 bg-slate-50 border border-slate-200 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Aperçu instantané : tape ou compose un code (ex: <strong>A1</strong>, <strong>A5</strong> ou <strong>53</strong>)</span>
+          </div>
+        </div>
+
+        <!-- Clavier tactile rapide Lettres A-J & Chiffres 0-9 -->
+        <div class="bg-slate-100 p-2.5 rounded-2xl border border-slate-200 space-y-1.5">
+          <div class="grid grid-cols-10 gap-1">
+            <button type="button" data-key="A" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">A</button>
+            <button type="button" data-key="B" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">B</button>
+            <button type="button" data-key="C" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">C</button>
+            <button type="button" data-key="D" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">D</button>
+            <button type="button" data-key="E" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">E</button>
+            <button type="button" data-key="F" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">F</button>
+            <button type="button" data-key="G" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">G</button>
+            <button type="button" data-key="H" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">H</button>
+            <button type="button" data-key="I" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">I</button>
+            <button type="button" data-key="J" class="pack-key h-10 rounded-lg bg-escnYellow-100 hover:bg-escnYellow-200 active:bg-escnYellow-300 text-escnBlue-950 font-display font-extrabold text-xs border border-escnYellow-400">J</button>
+          </div>
+          <div class="grid grid-cols-10 gap-1">
+            <button type="button" data-key="1" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">1</button>
+            <button type="button" data-key="2" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">2</button>
+            <button type="button" data-key="3" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">3</button>
+            <button type="button" data-key="4" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">4</button>
+            <button type="button" data-key="5" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">5</button>
+            <button type="button" data-key="6" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">6</button>
+            <button type="button" data-key="7" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">7</button>
+            <button type="button" data-key="8" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">8</button>
+            <button type="button" data-key="9" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">9</button>
+            <button type="button" data-key="0" class="pack-key h-10 rounded-lg bg-white hover:bg-slate-50 active:bg-slate-200 text-escnBlue-950 font-display font-extrabold text-sm border border-slate-200">0</button>
+          </div>
+          <div class="grid grid-cols-2 gap-1.5 pt-0.5">
+            <button type="button" id="btn-pack-backspace" class="h-10 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs">
+              ⌫ Effacer
+            </button>
+            <button type="button" id="btn-pack-next-token" class="h-10 rounded-lg bg-escnBlue-900 hover:bg-escnBlue-950 text-white font-bold text-xs">
+              Carte suivante (Espace) ↵
+            </button>
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-700">Cartes détectées dans ce paquet (<span id="pack-detected-count">0</span>)</span>
+            <button id="btn-pack-clear" type="button" class="text-slate-400 hover:text-red-600 font-semibold">Vider</button>
+          </div>
+          <div id="pack-detected-list" class="min-h-[68px] max-h-40 overflow-y-auto bg-slate-50 rounded-xl p-2 border border-slate-200 flex flex-wrap gap-1.5 content-start">
+            <span class="text-xs text-slate-400 italic p-1">Aucune carte saisie pour l'instant...</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-3.5 bg-slate-50 border-t border-slate-200">
+        <button id="btn-validate-pack" type="button" class="w-full h-12 bg-escnBlue-800 hover:bg-escnBlue-900 disabled:bg-slate-300 disabled:text-slate-500 text-white font-display font-extrabold text-sm rounded-xl shadow-sm transition" disabled>
+          Valider le paquet (0 carte)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODALE DE CONFIRMATION ==================== -->
+  <div id="confirm-modal" class="hidden fixed inset-0 bg-escnBlue-950/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-5 shadow-2xl space-y-4">
+      <h3 id="confirm-modal-title" class="font-display font-extrabold text-base text-escnBlue-950">Confirmation</h3>
+      <p id="confirm-modal-msg" class="text-xs text-slate-600 leading-relaxed"></p>
+      <div class="flex justify-end gap-2 pt-1">
+        <button id="confirm-modal-cancel" type="button" class="h-11 px-4 rounded-xl text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 transition">
+          Annuler
+        </button>
+        <button id="confirm-modal-ok" type="button" class="h-11 px-4 rounded-xl text-xs font-bold text-white bg-escnBlue-900 hover:bg-escnBlue-950 transition">
+          Confirmer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== NAVIGATION BASSE ==================== -->
+  <nav class="fixed bottom-0 inset-x-0 bg-white border-t border-slate-200 shadow-[0_-4px_16px_rgba(15,41,106,0.08)] z-30">
+    <div class="max-w-5xl mx-auto grid grid-cols-4 h-16">
+      <button data-tab="album" type="button" class="nav-btn active flex flex-col items-center justify-center gap-1 text-escnBlue-800 font-extrabold text-[11px] transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+        </svg>
+        <span>Album</span>
+      </button>
+
+      <button data-tab="stats" type="button" class="nav-btn flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-600 font-semibold text-[11px] transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        <span>Stats</span>
+      </button>
+
+      <button data-tab="trades" type="button" class="nav-btn flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-600 font-semibold text-[11px] transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+        </svg>
+        <span>Échanges</span>
+      </button>
+
+      <button data-tab="config" type="button" class="nav-btn flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-600 font-semibold text-[11px] transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <span>Config</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toast-box" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none"></div>
+
+  <!-- ==================== LOGIQUE APPLICATION (222 CARTES ESCN) ==================== -->
+  <script>
+    /**
+     * Définition officielle des 12 rubriques de l'album ESCN CARDS dans l'ordre exact :
+     * - A1 à A4 : Logo du club (cartes puzzle / grand format, libellé "Logo / Grand format")
+     * - A5 à A9 : Infrastructures (terrain, vestiaire... -> images individuelles)
+     * - B1..J4 : Photos de groupe en 3 ou 4 images (34 cartes)
+     * - 1..179 : Portraits individuels (179 cartes)
+     * Total : 38 cartes puzzle/photo groupe + 184 images individuelles = 222 cartes.
+     */
+    function buildNumberRange(start, end) {
+      const list = [];
+      for (let i = start; i <= end; i++) list.push(String(i));
+      return list;
+    }
+
+    const ALBUM_CATEGORIES_SPEC = [
+      { id: 'logo',     name: 'Logo du club',    codes: ['A1','A2','A3','A4'], mode: 'logo_puzzle' },
+      { id: 'infra',    name: 'Infrastructures', codes: ['A5','A6','A7','A8','A9'], mode: 'individual_only' },
+      { id: 'comites',  name: 'Comités',         codes: ['B1','B2','B3','B4', ...buildNumberRange(1, 13)], mode: 'group_and_indiv' },
+      { id: 'arbitres', name: 'Arbitres',        codes: [...buildNumberRange(14, 15)], mode: 'individual_only' },
+      { id: 'educ',     name: 'Éducateurs',      codes: ['C1','C2','C3', ...buildNumberRange(16, 34)], mode: 'group_and_indiv' },
+      { id: 'u6u7',     name: 'U6-U7',           codes: ['D1','D2','D3', ...buildNumberRange(35, 52)], mode: 'group_and_indiv' },
+      { id: 'u8u9',     name: 'U8-U9',           codes: ['E1','E2','E3','E4', ...buildNumberRange(53, 69)], mode: 'group_and_indiv' },
+      { id: 'u10u11',   name: 'U10-U11',         codes: ['F1','F2','F3','F4', ...buildNumberRange(70, 88)], mode: 'group_and_indiv' },
+      { id: 'u12u13',   name: 'U12-U13',         codes: ['G1','G2','G3','G4', ...buildNumberRange(89, 108)], mode: 'group_and_indiv' },
+      { id: 'u14u15',   name: 'U14-U15',         codes: ['H1','H2','H3','H4', ...buildNumberRange(109, 125)], mode: 'group_and_indiv' },
+      { id: 'seniors',  name: 'Seniors',         codes: ['I1','I2','I3','I4', ...buildNumberRange(126, 163)], mode: 'group_and_indiv' },
+      { id: 'loisirs',  name: 'Loisirs',         codes: ['J1','J2','J3','J4', ...buildNumberRange(164, 179)], mode: 'group_and_indiv' }
+    ];
+
+    const ALL_CARDS = [];
+    const CARD_BY_CODE = new Map();
+
+    ALBUM_CATEGORIES_SPEC.forEach((cat, catIndex) => {
+      cat.codes.forEach(code => {
+        const hasLetterPrefix = /^[A-J]\d+$/.test(code);
+        // Seules A1-A4 (logo_puzzle) et B1..J4 (group_and_indiv avec lettre) sont des cartes puzzle/grand format.
+        // A5-A9 (Infrastructures) sont des images individuelles au même titre que 1..179.
+        const isGroupOrGrand = (cat.mode === 'logo_puzzle') || (cat.mode === 'group_and_indiv' && hasLetterPrefix);
+        const typeLabel = cat.mode === 'logo_puzzle'
+          ? 'Logo / Grand format'
+          : (isGroupOrGrand ? 'Photo groupe' : 'Image individuelle');
+
+        const card = {
+          index: ALL_CARDS.length,
+          code: code,
+          categoryId: cat.id,
+          categoryName: cat.name,
+          catIndex: catIndex,
+          hasLetterPrefix: hasLetterPrefix,
+          isGroupOrGrand: isGroupOrGrand,
+          typeLabel: typeLabel
+        };
+        ALL_CARDS.push(card);
+        CARD_BY_CODE.set(code.toUpperCase(), card);
+      });
+    });
+
+    const TOTAL_GROUP_OR_GRAND = ALL_CARDS.filter(c => c.isGroupOrGrand).length; // 38 cartes
+
+    const STORAGE_KEY = 'escn_cards_album_222_v2';
+    const DEFAULT_TITLE = 'ESCN CARDS';
+
+    let state = {
+      clubName: DEFAULT_TITLE,
+      counts: {},     // { [code]: number } -> 0 manquante, 1 possédée, >=2 possédée + (qty-1) doubles
+      customNames: {} // { [code]: string }
+    };
+
+    let ui = {
+      filterStatus: 'all', // 'all' | 'missing' | 'owned' | 'duplicates' | 'group_photos'
+      filterCategory: 'ALL',
+      searchQuery: '',
+      collapsedCategories: new Set()
+    };
+
+    let lastTradeResult = null;
+    let packTokens = [];
+
+    // ==================== INITIALISATION & SAUVEGARDE ====================
+    function init() {
+      loadState();
+      bindEvents();
+      renderAll();
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          state.clubName = (parsed && typeof parsed.clubName === 'string' && parsed.clubName.trim())
+            ? parsed.clubName.trim()
+            : DEFAULT_TITLE;
+          state.counts = (parsed && typeof parsed.counts === 'object' && parsed.counts !== null)
+            ? parsed.counts
+            : {};
+          state.customNames = (parsed && typeof parsed.customNames === 'object' && parsed.customNames !== null)
+            ? parsed.customNames
+            : {};
+        }
+      } catch (err) {
+        console.error('Erreur chargement localStorage:', err);
+      }
+      document.getElementById('config-club-name').value = state.clubName;
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (err) {
+        showToast('⚠️ Sauvegarde locale indisponible');
+      }
+    }
+
+    // ==================== GESTION DES QUANTITÉS ====================
+    function setCardQty(code, nextQty) {
+      if (!CARD_BY_CODE.has(code)) return;
+      const cleanQty = Math.max(0, Math.min(99, parseInt(nextQty, 10) || 0));
+      if (cleanQty === 0) {
+        delete state.counts[code];
+      } else {
+        state.counts[code] = cleanQty;
+      }
+      saveState();
+      renderAll();
+    }
+
+    function handleCardTap(code) {
+      const current = state.counts[code] || 0;
+      if (current === 0) {
+        setCardQty(code, 1);
+      } else if (current === 1) {
+        setCardQty(code, 0);
+      } else {
+        const doubles = current - 1;
+        openConfirmModal(
+          `Retirer la carte ${code} ?`,
+          `Tu as cette carte possédée + ${doubles} double${doubles > 1 ? 's' : ''} (total ${current}). Veux-tu remettre sa quantité à 0, ou utiliser le bouton − pour retirer un double ?`,
+          () => setCardQty(code, 0)
+        );
+      }
+    }
+
+    function addOneToCategory(categoryId) {
+      const cat = ALBUM_CATEGORIES_SPEC.find(c => c.id === categoryId);
+      if (!cat) return;
+      cat.codes.forEach(code => {
+        state.counts[code] = (state.counts[code] || 0) + 1;
+      });
+      saveState();
+      renderAll();
+      showToast(`✅ +1 ajouté aux ${cat.codes.length} cartes (${cat.name})`);
+    }
+
+    // ==================== STATISTIQUES ====================
+    function computeStats() {
+      let owned = 0;
+      let duplicates = 0;
+      let groupOwned = 0;
+
+      ALL_CARDS.forEach(card => {
+        const qty = state.counts[card.code] || 0;
+        if (qty >= 1) {
+          owned++;
+          if (card.isGroupOrGrand) groupOwned++;
+        }
+        if (qty >= 2) {
+          duplicates += (qty - 1);
+        }
+      });
+
+      const missing = ALL_CARDS.length - owned;
+      const percent = Math.round((owned / ALL_CARDS.length) * 100);
+      return { owned, missing, duplicates, groupOwned, percent };
+    }
+
+    // ==================== RENDU PRINCIPAL ====================
+    function renderAll() {
+      const stats = computeStats();
+
+      document.getElementById('header-title').textContent = state.clubName;
+      document.title = `${state.clubName} • Album 222 Cartes`;
+      document.getElementById('header-owned-text').textContent = `${stats.owned} / ${ALL_CARDS.length}`;
+      document.getElementById('header-missing-text').textContent = `${stats.missing} manquante${stats.missing > 1 ? 's' : ''}`;
+      document.getElementById('header-doubles-count').textContent = stats.duplicates;
+      document.getElementById('header-progress-bar').style.width = `${stats.percent}%`;
+      document.getElementById('header-percent').textContent = `${stats.percent}%`;
+
+      document.getElementById('pill-count-all').textContent = String(ALL_CARDS.length);
+      document.getElementById('pill-count-missing').textContent = String(stats.missing);
+      document.getElementById('pill-count-owned').textContent = String(stats.owned);
+      document.getElementById('pill-count-duplicates').textContent = String(stats.duplicates);
+      document.getElementById('pill-count-group').textContent = `${stats.groupOwned}/${TOTAL_GROUP_OR_GRAND}`;
+
+      renderCategoryPills();
+      renderAlbumSections();
+      renderStatsTab(stats);
+      updateTradeCodeBox(stats);
+    }
+
+    function renderCategoryPills() {
+      const bar = document.getElementById('category-pills-bar');
+      bar.innerHTML = '';
+
+      const allBtn = document.createElement('button');
+      allBtn.type = 'button';
+      const isAll = ui.filterCategory === 'ALL';
+      allBtn.className = `h-8 px-3 rounded-lg text-xs font-bold whitespace-nowrap shrink-0 transition ${
+        isAll ? 'bg-escnBlue-800 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+      }`;
+      allBtn.textContent = 'Toutes les rubriques';
+      allBtn.onclick = () => {
+        ui.filterCategory = 'ALL';
+        renderAll();
+      };
+      bar.appendChild(allBtn);
+
+      ALBUM_CATEGORIES_SPEC.forEach(cat => {
+        let catOwned = 0;
+        cat.codes.forEach(code => {
+          if ((state.counts[code] || 0) >= 1) catOwned++;
+        });
+        const isActive = ui.filterCategory === cat.id;
+        const isComplete = catOwned === cat.codes.length;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `h-8 px-2.5 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 transition ${
+          isActive
+            ? 'bg-escnBlue-800 text-white font-bold'
+            : (isComplete
+                ? 'bg-escnYellow-100 text-escnBlue-950 border border-escnYellow-400'
+                : 'bg-slate-100 text-slate-700 hover:bg-slate-200')
+        }`;
+        btn.innerHTML = `<span>${escapeHtml(cat.name)}</span><span class="text-[10px] opacity-85 font-bold">${catOwned}/${cat.codes.length}</span>`;
+        btn.onclick = () => {
+          ui.filterCategory = cat.id;
+          renderAll();
+        };
+        bar.appendChild(btn);
+      });
+    }
+
+    function renderAlbumSections() {
+      const container = document.getElementById('categories-sections-container');
+      const emptyState = document.getElementById('album-empty-state');
+      const query = ui.searchQuery.trim().toLowerCase();
+
+      container.innerHTML = '';
+      let totalVisible = 0;
+
+      ALBUM_CATEGORIES_SPEC.forEach(cat => {
+        if (ui.filterCategory !== 'ALL' && ui.filterCategory !== cat.id) return;
+
+        const catCards = cat.codes.map(code => CARD_BY_CODE.get(code));
+        const visibleCards = catCards.filter(card => {
+          const qty = state.counts[card.code] || 0;
+          if (ui.filterStatus === 'missing' && qty > 0) return false;
+          if (ui.filterStatus === 'owned' && qty === 0) return false;
+          if (ui.filterStatus === 'duplicates' && qty < 2) return false;
+          if (ui.filterStatus === 'group_photos' && !card.isGroupOrGrand) return false;
+
+          if (query) {
+            const customName = (state.customNames[card.code] || '').toLowerCase();
+            const matchCode = card.code.toLowerCase().includes(query);
+            const matchCat = card.categoryName.toLowerCase().includes(query);
+            const matchType = card.typeLabel.toLowerCase().includes(query);
+            const matchName = customName.includes(query);
+            if (!matchCode && !matchCat && !matchType && !matchName) return false;
+          }
+          return true;
+        });
+
+        if (visibleCards.length === 0) return;
+        totalVisible += visibleCards.length;
+
+        let catOwned = 0;
+        catCards.forEach(c => { if ((state.counts[c.code] || 0) >= 1) catOwned++; });
+        const catTotal = catCards.length;
+        const catPct = Math.round((catOwned / catTotal) * 100);
+        const isCollapsed = ui.collapsedCategories.has(cat.id);
+
+        const section = document.createElement('div');
+        section.className = 'bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden';
+
+        const header = document.createElement('div');
+        header.className = 'px-3.5 py-2.5 bg-slate-50 border-b border-slate-100 flex items-center justify-between gap-2';
+        header.innerHTML = `
+          <button type="button" class="flex-1 flex items-center gap-2 text-left min-w-0 py-1" data-toggle-cat="${cat.id}">
+            <span class="text-slate-400 text-xs transition-transform ${isCollapsed ? '-rotate-90' : ''}">▼</span>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <h2 class="font-display font-extrabold text-sm text-escnBlue-950 truncate">${escapeHtml(cat.name)}</h2>
+                <span class="text-xs font-bold ${catOwned === catTotal ? 'text-escnBlue-700' : 'text-slate-500'} shrink-0">
+                  ${catOwned}/${catTotal} ${catOwned === catTotal ? '✅' : ''}
+                </span>
+              </div>
+              <div class="w-full max-w-[160px] h-1.5 bg-slate-200 rounded-full overflow-hidden mt-1">
+                <div class="h-full ${catOwned === catTotal ? 'bg-escnYellow-400' : 'bg-escnBlue-700'} rounded-full" style="width: ${catPct}%"></div>
+              </div>
+            </div>
+          </button>
+
+          <button type="button" data-add-cat="${cat.id}" class="h-9 px-2.5 rounded-xl bg-white hover:bg-escnYellow-50 active:scale-95 text-escnBlue-900 border border-slate-200 text-[11px] font-bold shrink-0 transition" title="Ajouter +1 à toutes les cartes de ${cat.name}">
+            +1 toutes
+          </button>
+        `;
+
+        header.querySelector(`[data-toggle-cat="${cat.id}"]`).onclick = () => {
+          if (ui.collapsedCategories.has(cat.id)) {
+            ui.collapsedCategories.delete(cat.id);
+          } else {
+            ui.collapsedCategories.add(cat.id);
+          }
+          renderAlbumSections();
+        };
+
+        header.querySelector(`[data-add-cat="${cat.id}"]`).onclick = () => {
+          openConfirmModal(
+            `Ajouter +1 à "${cat.name}" ?`,
+            `Cela ajoutera +1 exemplaire à chacune des ${catTotal} cartes de la rubrique ${cat.name}.`,
+            () => addOneToCategory(cat.id)
+          );
+        };
+
+        section.appendChild(header);
+
+        if (!isCollapsed) {
+          const grid = document.createElement('div');
+          grid.className = 'p-2.5 sm:p-3 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-2';
+
+          visibleCards.forEach(card => {
+            const qty = state.counts[card.code] || 0;
+            const isOwned = qty >= 1;
+            const doubles = qty > 1 ? qty - 1 : 0;
+            const customName = state.customNames[card.code] || '';
+            const isGrand = card.isGroupOrGrand;
+
+            const tile = document.createElement('div');
+            let cls = 'rounded-xl border-2 p-2 flex flex-col justify-between min-h-[108px] transition-all cursor-pointer active:scale-[0.97] ';
+
+            if (isOwned) {
+              cls += isGrand
+                ? 'grand-owned shadow-xs'
+                : 'bg-escnBlue-50/90 border-escnBlue-700 shadow-xs';
+            } else {
+              cls += isGrand
+                ? 'bg-escnYellow-50/45 border-escnYellow-300 hover:border-escnYellow-500'
+                : 'bg-slate-50 border-slate-200 hover:border-slate-300';
+            }
+            tile.className = cls;
+
+            tile.innerHTML = `
+              <div class="flex items-start justify-between gap-1">
+                <span class="font-display font-black text-sm sm:text-base leading-none ${
+                  isOwned
+                    ? (isGrand ? 'text-escnBlue-950' : 'text-escnBlue-900')
+                    : (isGrand ? 'text-amber-900' : 'text-slate-700')
+                }">
+                  ${card.code}
+                </span>
+
+                ${doubles > 0
+                  ? `<span class="px-1.5 py-0.5 rounded-md bg-escnYellow-400 text-escnBlue-950 font-display font-extrabold text-[10px] leading-none border border-escnYellow-500">+${doubles}</span>`
+                  : (isGrand
+                      ? `<span class="px-1 py-0.5 rounded bg-escnYellow-200/90 text-escnBlue-950 font-bold text-[9px] leading-none">🧩</span>`
+                      : '')
+                }
+              </div>
+
+              <div class="my-1 min-h-[26px] flex flex-col justify-center">
+                ${customName
+                  ? `<span class="text-[11px] font-bold leading-tight line-clamp-2 text-slate-900">${escapeHtml(customName)}</span>`
+                  : `<span class="text-[10px] font-medium leading-tight ${
+                      isGrand
+                        ? 'text-amber-900/90 font-semibold'
+                        : (isOwned ? 'text-escnBlue-800' : 'text-slate-400')
+                    }">${card.typeLabel}</span>`
+                }
+              </div>
+
+              <div class="flex items-center justify-between gap-1 pt-1 border-t ${
+                isOwned ? (isGrand ? 'border-escnYellow-400/70' : 'border-escnBlue-200') : 'border-slate-200/70'
+              }" onclick="event.stopPropagation()">
+                <button
+                  type="button"
+                  aria-label="Retirer ${card.code}"
+                  onclick="setCardQty('${card.code}', ${qty - 1})"
+                  class="w-8 h-8 rounded-lg flex items-center justify-center font-extrabold text-sm transition ${
+                    qty > 0
+                      ? 'bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 shadow-2xs'
+                      : 'bg-slate-100 text-slate-300 cursor-not-allowed'
+                  }"
+                  ${qty === 0 ? 'disabled' : ''}
+                >−</button>
+
+                <span class="text-[10px] font-extrabold ${
+                  isOwned ? 'text-escnBlue-950' : 'text-slate-400'
+                }">
+                  ${qty === 0 ? '0' : (qty === 1 ? '✓' : `x${qty}`)}
+                </span>
+
+                <button
+                  type="button"
+                  aria-label="Ajouter ${card.code}"
+                  onclick="setCardQty('${card.code}', ${qty + 1})"
+                  class="w-8 h-8 rounded-lg flex items-center justify-center font-extrabold text-sm transition shadow-2xs ${
+                    isGrand
+                      ? 'bg-escnYellow-400 hover:bg-escnYellow-300 text-escnBlue-950 border border-escnYellow-500'
+                      : 'bg-escnBlue-800 hover:bg-escnBlue-900 text-white'
+                  }"
+                >+</button>
+              </div>
+            `;
+
+            tile.addEventListener('click', () => handleCardTap(card.code));
+            grid.appendChild(tile);
+          });
+
+          section.appendChild(grid);
+        }
+
+        container.appendChild(section);
+      });
+
+      emptyState.classList.toggle('hidden', totalVisible > 0);
+      container.classList.toggle('hidden', totalVisible === 0);
+    }
+
+    // ==================== ONGLET STATISTIQUES ====================
+    function renderStatsTab(stats) {
+      document.getElementById('stat-box-owned').textContent = `${stats.owned} / ${ALL_CARDS.length}`;
+      document.getElementById('stat-box-missing').textContent = String(stats.missing);
+      document.getElementById('stat-box-group').textContent = `${stats.groupOwned} / ${TOTAL_GROUP_OR_GRAND}`;
+      document.getElementById('stat-box-duplicates').textContent = String(stats.duplicates);
+
+      const listEl = document.getElementById('stats-categories-list');
+      listEl.innerHTML = '';
+
+      ALBUM_CATEGORIES_SPEC.forEach(cat => {
+        let owned = 0;
+        let doubles = 0;
+        cat.codes.forEach(code => {
+          const q = state.counts[code] || 0;
+          if (q >= 1) owned++;
+          if (q >= 2) doubles += (q - 1);
+        });
+        const total = cat.codes.length;
+        const missing = total - owned;
+        const pct = Math.round((owned / total) * 100);
+        const done = owned === total;
+
+        const row = document.createElement('div');
+        row.className = 'p-3 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5';
+        row.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="font-display font-extrabold text-xs sm:text-sm text-escnBlue-950 truncate">${escapeHtml(cat.name)}</span>
+              ${done ? '<span class="px-1.5 py-0.5 rounded bg-escnYellow-200 text-escnBlue-950 text-[10px] font-bold">Complet</span>' : ''}
+            </div>
+            <div class="flex items-center gap-2 text-xs shrink-0">
+              <span class="font-bold text-slate-800">${owned}/${total}</span>
+              <span class="font-display font-extrabold text-escnBlue-800 w-9 text-right">${pct}%</span>
+            </div>
+          </div>
+
+          <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+            <div class="h-full ${done ? 'bg-escnYellow-400' : 'bg-escnBlue-700'} rounded-full transition-all" style="width: ${pct}%"></div>
+          </div>
+
+          <div class="flex justify-between text-[11px] text-slate-500">
+            <span>Manquantes : <strong class="text-slate-700">${missing}</strong></span>
+            <span>Doubles : <strong class="text-escnBlue-900">${doubles}</strong></span>
+          </div>
+        `;
+        listEl.appendChild(row);
+      });
+    }
+
+    // ==================== SYSTÈME D'ÉCHANGES ALB222 ====================
+    function encodeAlbumState222() {
+      let bigVal = 0n;
+      for (let i = 0; i < ALL_CARDS.length; i++) {
+        const qty = state.counts[ALL_CARDS[i].code] || 0;
+        const trinary = qty === 0 ? 0n : (qty === 1 ? 1n : 2n);
+        bigVal = bigVal * 3n + trinary;
+      }
+      return 'ALB222:' + bigVal.toString(36).toUpperCase();
+    }
+
+    function decodeAlbumState222(rawText) {
+      const match = String(rawText || '').match(/ALB222:([0-9A-Za-z]+)/);
+      if (!match) throw new Error('Code ALB222 introuvable');
+
+      const base36Str = match[1].toLowerCase();
+      let bigVal = 0n;
+      for (let i = 0; i < base36Str.length; i++) {
+        const digit = parseInt(base36Str[i], 36);
+        if (isNaN(digit)) throw new Error('Caractère invalide');
+        bigVal = bigVal * 36n + BigInt(digit);
+      }
+
+      const states = new Array(ALL_CARDS.length).fill(0);
+      for (let i = ALL_CARDS.length - 1; i >= 0; i--) {
+        states[i] = Number(bigVal % 3n);
+        bigVal = bigVal / 3n;
+      }
+      if (bigVal !== 0n) throw new Error('Code hors plage');
+      return states;
+    }
+
+    function updateTradeCodeBox(stats) {
+      document.getElementById('my-trade-code-display').value = encodeAlbumState222();
+      document.getElementById('trade-my-summary').textContent =
+        `${stats.missing} manquante${stats.missing > 1 ? 's' : ''} • ${stats.duplicates} double${stats.duplicates > 1 ? 's' : ''}`;
+    }
+
+    function buildWhatsAppMessage() {
+      const missingList = [];
+      const doublesList = [];
+
+      ALL_CARDS.forEach(card => {
+        const qty = state.counts[card.code] || 0;
+        if (qty === 0) {
+          missingList.push(card.code);
+        } else if (qty >= 2) {
+          const extra = qty - 1;
+          doublesList.push(extra > 1 ? `${card.code} (x${extra})` : card.code);
+        }
+      });
+
+      let msg = `⚽ *${state.clubName}* (Courcelles sur Nied)\n\n`;
+      msg += `❌ *Mes manquantes (${missingList.length}) :*\n`;
+      msg += missingList.length > 0 ? missingList.join(', ') : 'Aucune, album complet ! 🏆';
+      msg += `\n\n🔁 *Mes doubles (${doublesList.length}) :*\n`;
+      msg += doublesList.length > 0 ? doublesList.join(', ') : 'Aucun double disponible.';
+      msg += `\n\n📲 *Code d'échange rapide :*\n${encodeAlbumState222()}`;
+      return msg;
+    }
+
+    function runTradeComparison() {
+      const raw = document.getElementById('partner-code-input').value.trim();
+      if (!raw) {
+        showToast("Colle d'abord le code ALB222 d'un collectionneur");
+        return;
+      }
+      try {
+        const partnerStates = decodeAlbumState222(raw);
+        const receiveCards = [];
+        const giveCards = [];
+
+        ALL_CARDS.forEach((card, idx) => {
+          const myQty = state.counts[card.code] || 0;
+          const partnerState = partnerStates[idx];
+          if (myQty === 0 && partnerState === 2) receiveCards.push(card);
+          if (myQty >= 2 && partnerState === 0) giveCards.push(card);
+        });
+
+        lastTradeResult = { receiveCards, giveCards };
+        renderTradeComparisonResult(receiveCards, giveCards);
+        showToast('🤝 Comparaison terminée !');
+      } catch (err) {
+        showToast('❌ Code ALB222 invalide ou incomplet');
+      }
+    }
+
+    function renderTradeComparisonResult(receiveCards, giveCards) {
+      const box = document.getElementById('trade-comparison-result');
+      box.classList.remove('hidden');
+
+      document.getElementById('trade-receive-badge').textContent = `${receiveCards.length} carte${receiveCards.length > 1 ? 's' : ''}`;
+      document.getElementById('trade-give-badge').textContent = `${giveCards.length} carte${giveCards.length > 1 ? 's' : ''}`;
+
+      const formatRow = (card, bgClass) => {
+        const customName = state.customNames[card.code];
+        return `
+          <div class="${bgClass} px-2.5 py-1.5 rounded-lg flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <span class="font-display font-extrabold text-escnBlue-950">${card.code}</span>
+              <span class="text-slate-600 ml-1">${escapeHtml(customName || card.categoryName)}</span>
+            </div>
+            ${card.isGroupOrGrand ? `<span class="text-[10px] font-bold text-escnBlue-950 bg-escnYellow-200 px-1.5 py-0.5 rounded shrink-0">🧩 ${escapeHtml(card.typeLabel)}</span>` : ''}
+          </div>
+        `;
+      };
+
+      document.getElementById('trade-receive-list').innerHTML = receiveCards.length > 0
+        ? receiveCards.map(c => formatRow(c, 'bg-white border border-escnBlue-200')).join('')
+        : '<p class="text-slate-400 italic py-2">Aucune de ses doubles ne te manque.</p>';
+
+      document.getElementById('trade-give-list').innerHTML = giveCards.length > 0
+        ? giveCards.map(c => formatRow(c, 'bg-white border border-escnYellow-300')).join('')
+        : '<p class="text-slate-400 italic py-2">Aucun de tes doubles ne lui manque.</p>';
+
+      document.getElementById('trade-validate-banner').classList.toggle(
+        'hidden',
+        receiveCards.length === 0 && giveCards.length === 0
+      );
+    }
+
+    function applyValidatedTrade() {
+      if (!lastTradeResult) return;
+      const { receiveCards, giveCards } = lastTradeResult;
+
+      openConfirmModal(
+        'Valider cet échange ?',
+        `Tu vas ajouter ${receiveCards.length} carte(s) manquante(s) et retirer 1 double sur ${giveCards.length} carte(s).`,
+        () => {
+          receiveCards.forEach(c => {
+            state.counts[c.code] = (state.counts[c.code] || 0) + 1;
+          });
+          giveCards.forEach(c => {
+            if ((state.counts[c.code] || 0) >= 2) {
+              state.counts[c.code] -= 1;
+            }
+          });
+          saveState();
+          renderAll();
+          document.getElementById('trade-comparison-result').classList.add('hidden');
+          document.getElementById('partner-code-input').value = '';
+          lastTradeResult = null;
+          showToast('🎉 Échange enregistré dans ton album !');
+        }
+      );
+    }
+
+    // ==================== MODE OUVERTURE DE PAQUET ====================
+    function openPackModal() {
+      packTokens = [];
+      document.getElementById('pack-input').value = '';
+      updatePackUI();
+      document.getElementById('pack-modal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('pack-input').focus(), 100);
+    }
+
+    function closePackModal() {
+      document.getElementById('pack-modal').classList.add('hidden');
+    }
+
+    function updatePackUI() {
+      const inputVal = document.getElementById('pack-input').value.toUpperCase();
+      const parts = inputVal.split(/[\s,;]+/);
+      const currentDraft = parts[parts.length - 1] || '';
+
+      const previewEl = document.getElementById('pack-live-preview');
+      if (currentDraft && CARD_BY_CODE.has(currentDraft)) {
+        const card = CARD_BY_CODE.get(currentDraft);
+        const existingQty = state.counts[card.code] || 0;
+        const inPackCount = packTokens.filter(t => t === card.code).length;
+        const futureQty = existingQty + inPackCount + 1;
+        const customName = state.customNames[card.code];
+
+        previewEl.className = 'min-h-[42px] rounded-xl px-3 py-2 bg-escnBlue-50 border border-escnBlue-300 flex items-center justify-between gap-2 text-xs';
+        previewEl.innerHTML = `
+          <div class="truncate">
+            <strong class="font-display font-black text-escnBlue-950">${card.code}</strong>
+            <span class="text-slate-700">• ${escapeHtml(card.categoryName)} (${escapeHtml(card.typeLabel)})</span>
+            ${customName ? `<span class="text-slate-500">• ${escapeHtml(customName)}</span>` : ''}
+          </div>
+          <span class="font-bold shrink-0 ${futureQty === 1 ? 'text-escnBlue-800' : 'text-amber-800'}">
+            ${futureQty === 1 ? '✨ Nouvelle !' : `🔁 Passe à +${futureQty - 1} double`}
+          </span>
+        `;
+      } else if (currentDraft) {
+        previewEl.className = 'min-h-[42px] rounded-xl px-3 py-2 bg-escnYellow-50 border border-escnYellow-300 flex items-center justify-between text-xs';
+        previewEl.innerHTML = `<span class="text-slate-700">Saisie en cours : <strong>${escapeHtml(currentDraft)}</strong></span>`;
+      } else {
+        previewEl.className = 'min-h-[42px] rounded-xl px-3 py-2 bg-slate-50 border border-slate-200 flex items-center justify-between text-xs';
+        previewEl.innerHTML = `<span class="text-slate-400">Aperçu instantané : tape ou compose un code (ex: <strong>A1</strong>, <strong>A5</strong> ou <strong>53</strong>)</span>`;
+      }
+
+      const listEl = document.getElementById('pack-detected-list');
+      document.getElementById('pack-detected-count').textContent = String(packTokens.length);
+
+      if (packTokens.length === 0) {
+        listEl.innerHTML = `<span class="text-xs text-slate-400 italic p-1">Aucune carte ajoutée au lot pour l'instant...</span>`;
+      } else {
+        listEl.innerHTML = packTokens.map((code, i) => {
+          const card = CARD_BY_CODE.get(code);
+          return `
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold ${
+              card.isGroupOrGrand
+                ? 'bg-escnYellow-100 text-escnBlue-950 border border-escnYellow-400'
+                : 'bg-escnBlue-100 text-escnBlue-950 border border-escnBlue-300'
+            }">
+              <span>${code}</span>
+              <button type="button" onclick="removePackToken(${i})" class="text-slate-500 hover:text-red-600 font-black ml-0.5">×</button>
+            </span>
+          `;
+        }).join('');
+      }
+
+      const validateBtn = document.getElementById('btn-validate-pack');
+      validateBtn.disabled = packTokens.length === 0;
+      validateBtn.textContent = packTokens.length > 0
+        ? `✅ Valider le paquet (${packTokens.length} carte${packTokens.length > 1 ? 's' : ''})`
+        : 'Valider le paquet (0 carte)';
+    }
+
+    function commitDraftToPackTokens() {
+      const input = document.getElementById('pack-input');
+      const rawTokens = input.value.toUpperCase().split(/[\s,;]+/).filter(Boolean);
+      let added = 0;
+
+      rawTokens.forEach(tok => {
+        if (CARD_BY_CODE.has(tok)) {
+          packTokens.push(tok);
+          added++;
+        }
+      });
+
+      if (added > 0) {
+        input.value = '';
+        updatePackUI();
+      } else if (rawTokens.length > 0) {
+        showToast(`⚠️ Code inconnu : ${rawTokens.join(', ')}`);
+      }
+    }
+
+    function removePackToken(idx) {
+      packTokens.splice(idx, 1);
+      updatePackUI();
+    }
+
+    function validateFullPack() {
+      const input = document.getElementById('pack-input');
+      const leftover = input.value.toUpperCase().split(/[\s,;]+/).filter(Boolean);
+      leftover.forEach(tok => {
+        if (CARD_BY_CODE.has(tok)) packTokens.push(tok);
+      });
+
+      if (packTokens.length === 0) return;
+
+      let newCardsCount = 0;
+      let newDoublesCount = 0;
+
+      packTokens.forEach(code => {
+        const before = state.counts[code] || 0;
+        if (before === 0) newCardsCount++;
+        else newDoublesCount++;
+        state.counts[code] = before + 1;
+      });
+
+      saveState();
+      renderAll();
+      closePackModal();
+      showToast(`🎉 Paquet validé : +${newCardsCount} nouvelle(s), +${newDoublesCount} double(s) !`);
+    }
+
+    // ==================== CONFIG & SAUVEGARDE ====================
+    function applyBulkNames() {
+      const text = document.getElementById('bulk-names-textarea').value.trim();
+      if (!text) {
+        showToast('Colle une liste au format Code: Nom ou Code;Nom');
+        return;
+      }
+
+      let updated = 0;
+      text.split('\n').forEach(line => {
+        const match = line.match(/^([^:;]+)[:;](.*)$/);
+        if (!match) return;
+        const code = match[1].trim().toUpperCase();
+        const name = match[2].trim();
+        if (CARD_BY_CODE.has(code)) {
+          if (name) state.customNames[code] = name;
+          else delete state.customNames[code];
+          updated++;
+        }
+      });
+
+      saveState();
+      renderAll();
+      showToast(`✅ ${updated} nom(s) mis à jour !`);
+    }
+
+    // ==================== UTILITAIRES UI ====================
+    function copyTextSafe(text, toastMsg) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast(toastMsg);
+      } catch (err) {
+        showToast('❌ Copie impossible');
+      }
+      document.body.removeChild(ta);
+    }
+
+    function showToast(msg) {
+      const box = document.getElementById('toast-box');
+      const el = document.createElement('div');
+      el.className = 'toast-anim bg-escnBlue-950 text-white text-xs font-bold px-4 py-3 rounded-full shadow-xl border border-escnYellow-400/70 whitespace-nowrap';
+      el.textContent = msg;
+      box.innerHTML = '';
+      box.appendChild(el);
+      setTimeout(() => {
+        el.style.opacity = '0';
+        el.style.transition = 'opacity 0.2s ease';
+        setTimeout(() => el.remove(), 200);
+      }, 2500);
+    }
+
+    function openConfirmModal(title, message, onConfirm) {
+      const modal = document.getElementById('confirm-modal');
+      document.getElementById('confirm-modal-title').textContent = title;
+      document.getElementById('confirm-modal-msg').textContent = message;
+      modal.classList.remove('hidden');
+
+      const btnOk = document.getElementById('confirm-modal-ok');
+      const btnCancel = document.getElementById('confirm-modal-cancel');
+
+      const close = () => {
+        modal.classList.add('hidden');
+        btnOk.onclick = null;
+        btnCancel.onclick = null;
+      };
+
+      btnCancel.onclick = close;
+      btnOk.onclick = () => {
+        close();
+        onConfirm();
+      };
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // ==================== ÉCOUTEURS ====================
+    function bindEvents() {
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tab = btn.dataset.tab;
+          document.querySelectorAll('.nav-btn').forEach(b => {
+            b.classList.remove('active', 'text-escnBlue-800', 'font-extrabold');
+            b.classList.add('text-slate-400', 'font-semibold');
+          });
+          btn.classList.add('active', 'text-escnBlue-800', 'font-extrabold');
+          btn.classList.remove('text-slate-400', 'font-semibold');
+
+          ['album', 'stats', 'trades', 'config'].forEach(v => {
+            document.getElementById(`view-${v}`).classList.toggle('hidden', v !== tab);
+          });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      document.getElementById('btn-quick-doubles').addEventListener('click', () => {
+        document.querySelector('.nav-btn[data-tab="album"]').click();
+        document.querySelector('.filter-pill[data-filter="duplicates"]').click();
+      });
+
+      document.querySelectorAll('.filter-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          ui.filterStatus = pill.dataset.filter;
+          document.querySelectorAll('.filter-pill').forEach(p => {
+            p.classList.remove('active', 'bg-escnBlue-900', 'text-white', 'font-bold', 'shadow-xs');
+            if (p.dataset.filter === 'group_photos') {
+              p.classList.add('bg-escnYellow-50', 'text-escnBlue-950', 'font-semibold');
+            } else {
+              p.classList.add('bg-slate-100', 'text-slate-600', 'font-semibold');
+            }
+          });
+          pill.classList.remove('bg-slate-100', 'text-slate-600', 'bg-escnYellow-50', 'text-escnBlue-950', 'font-semibold');
+          pill.classList.add('active', 'bg-escnBlue-900', 'text-white', 'font-bold', 'shadow-xs');
+          renderAlbumSections();
+        });
+      });
+
+      const searchInput = document.getElementById('search-input');
+      const clearSearchBtn = document.getElementById('clear-search-btn');
+      searchInput.addEventListener('input', (e) => {
+        ui.searchQuery = e.target.value;
+        clearSearchBtn.classList.toggle('hidden', !ui.searchQuery);
+        renderAlbumSections();
+      });
+
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        ui.searchQuery = '';
+        clearSearchBtn.classList.add('hidden');
+        renderAlbumSections();
+      });
+
+      document.getElementById('btn-reset-album-filters').addEventListener('click', () => {
+        searchInput.value = '';
+        ui.searchQuery = '';
+        ui.filterCategory = 'ALL';
+        clearSearchBtn.classList.add('hidden');
+        document.querySelector('.filter-pill[data-filter="all"]').click();
+        renderAll();
+      });
+
+      document.getElementById('btn-open-pack-modal').addEventListener('click', openPackModal);
+      document.getElementById('btn-close-pack-modal').addEventListener('click', closePackModal);
+
+      const packInput = document.getElementById('pack-input');
+      packInput.addEventListener('input', (e) => {
+        if (/[\s,;]$/.test(e.target.value)) {
+          commitDraftToPackTokens();
+        } else {
+          updatePackUI();
+        }
+      });
+
+      packInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          commitDraftToPackTokens();
+        }
+      });
+
+      document.getElementById('btn-pack-add-current').addEventListener('click', commitDraftToPackTokens);
+
+      document.querySelectorAll('.pack-key').forEach(keyBtn => {
+        keyBtn.addEventListener('click', () => {
+          packInput.value = (packInput.value + keyBtn.dataset.key).toUpperCase();
+          updatePackUI();
+        });
+      });
+
+      document.getElementById('btn-pack-backspace').addEventListener('click', () => {
+        packInput.value = packInput.value.slice(0, -1);
+        updatePackUI();
+      });
+
+      document.getElementById('btn-pack-next-token').addEventListener('click', commitDraftToPackTokens);
+      document.getElementById('btn-pack-clear').addEventListener('click', () => {
+        packTokens = [];
+        packInput.value = '';
+        updatePackUI();
+      });
+      document.getElementById('btn-validate-pack').addEventListener('click', validateFullPack);
+
+      document.getElementById('btn-copy-whatsapp').addEventListener('click', () => {
+        copyTextSafe(buildWhatsAppMessage(), '📋 Liste WhatsApp copiée !');
+      });
+
+      document.getElementById('btn-copy-code').addEventListener('click', () => {
+        copyTextSafe(encodeAlbumState222(), '🔑 Code ALB222 copié !');
+      });
+
+      document.getElementById('btn-compare-trade').addEventListener('click', runTradeComparison);
+      document.getElementById('btn-validate-trade').addEventListener('click', applyValidatedTrade);
+
+      document.getElementById('btn-save-club-name').addEventListener('click', () => {
+        const val = document.getElementById('config-club-name').value.trim();
+        if (val) {
+          state.clubName = val;
+          saveState();
+          renderAll();
+          showToast('✅ Titre enregistré');
+        }
+      });
+
+      document.getElementById('btn-fill-current-names').addEventListener('click', () => {
+        const lines = [];
+        ALL_CARDS.forEach(c => {
+          if (state.customNames[c.code]) {
+            lines.push(`${c.code}: ${state.customNames[c.code]}`);
+          }
+        });
+        document.getElementById('bulk-names-textarea').value = lines.join('\n');
+        showToast(lines.length > 0 ? `${lines.length} nom(s) chargé(s)` : 'Aucun nom personnalisé enregistré');
+      });
+
+      document.getElementById('btn-apply-bulk-names').addEventListener('click', applyBulkNames);
+
+      document.getElementById('btn-export-backup').addEventListener('click', () => {
+        const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(state, null, 2));
+        const link = document.createElement('a');
+        link.href = dataStr;
+        link.download = 'sauvegarde-escn-cards-222.json';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        showToast('💾 Sauvegarde téléchargée');
+      });
+
+      document.getElementById('input-restore-backup').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          try {
+            const parsed = JSON.parse(ev.target.result);
+            if (parsed && typeof parsed.counts === 'object' && parsed.counts !== null) {
+              state.clubName = (typeof parsed.clubName === 'string' && parsed.clubName.trim())
+                ? parsed.clubName.trim()
+                : DEFAULT_TITLE;
+              state.counts = parsed.counts;
+              state.customNames = (typeof parsed.customNames === 'object' && parsed.customNames !== null)
+                ? parsed.customNames
+                : {};
+              document.getElementById('config-club-name').value = state.clubName;
+              saveState();
+              renderAll();
+              showToast('✅ Sauvegarde restaurée !');
+            } else {
+              showToast('❌ Fichier de sauvegarde invalide');
+            }
+          } catch (err) {
+            showToast('❌ Impossible de lire le fichier');
+          }
+        };
+        reader.readAsText(file);
+        e.target.value = '';
+      });
+
+      document.getElementById('btn-reset-collection').addEventListener('click', () => {
+        openConfirmModal(
+          'Remettre les 222 cartes à zéro ?',
+          'Toutes tes cartes possédées et tes doubles seront effacés (les noms personnalisés seront conservés).',
+          () => {
+            state.counts = {};
+            saveState();
+            renderAll();
+            showToast('🗑️ Collection remise à zéro');
+          }
+        );
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
